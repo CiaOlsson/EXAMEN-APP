@@ -10,4 +10,9 @@
     <ProjectReference Include="..\NutritionTracker.Domain\NutritionTracker.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DbContext\" />
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
