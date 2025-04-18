@@ -4,6 +4,15 @@ using NutritionTracker.Infrastructure.DbContext;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("AllowFrontend", policy =>
+	{
+		policy.WithOrigins("http://localhost:5173") 
+			  .AllowAnyHeader()
+			  .AllowAnyMethod();
+	});
+});
 // Add services to the container.
 //Lägg till JWT eller cookie-auth senare?? 
 builder.Services.AddControllers();
@@ -34,7 +43,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
 
