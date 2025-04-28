@@ -18,5 +18,7 @@ namespace NutritionTracker.Infrastructure.DbContext
 		}
 
 		public DbSet<DomainEvent> Events { get; set; }
+
+		public DbSet<FoodEntity> Foods { get; set; }
 	}
 }

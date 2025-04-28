@@ -1,0 +1,1 @@
+C:\Users\Cissi\Documents\NACKADEMIN\EXAMENSARBETE\EXAMEN-APP\NutritionTracker\scripts> python import_livsmedel.py
