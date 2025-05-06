@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionTracker.Domain", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionTracker.Infrastructure", "NutritionTracker.Infrastructure\NutritionTracker.Infrastructure.csproj", "{1FCBC16D-B9B7-44F1-B4E3-B2A7D842631B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionTracker.Application", "NutritionTracker.Application\NutritionTracker.Application.csproj", "{180BC065-F819-4F77-B979-873F7EDC5C69}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{1FCBC16D-B9B7-44F1-B4E3-B2A7D842631B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FCBC16D-B9B7-44F1-B4E3-B2A7D842631B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FCBC16D-B9B7-44F1-B4E3-B2A7D842631B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{180BC065-F819-4F77-B979-873F7EDC5C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{180BC065-F819-4F77-B979-873F7EDC5C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{180BC065-F819-4F77-B979-873F7EDC5C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{180BC065-F819-4F77-B979-873F7EDC5C69}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

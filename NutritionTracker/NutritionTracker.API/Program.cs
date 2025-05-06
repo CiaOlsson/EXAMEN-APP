@@ -4,7 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NutritionTracker.API.Services;
+using NutritionTracker.Application.Interfaces;
+using NutritionTracker.Application.Services;
 using NutritionTracker.Infrastructure.DbContext;
+using NutritionTracker.Infrastructure.Repositories;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args); 
@@ -20,10 +23,9 @@ builder.Services.AddCors(options =>
 			  .AllowAnyMethod();
 	});
 });
+
 // Add services to the container.
-//Lägg till JWT eller cookie-auth senare?? 
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddSwaggerGen(options =>
 {
 	options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
@@ -52,6 +54,11 @@ builder.Services.AddSwaggerGen(options =>
 		}
 	});
 });
+
+builder.Services.AddMediator(options => options.ServiceLifetime = ServiceLifetime.Scoped);
+builder.Services.AddScoped<IEventStore, EventStore>();
+builder.Services.AddScoped<IDomainEventFactory, DomainEventFactory>();
+builder.Services.AddScoped<IFoodRepository, FoodRepository>();
 
 
 builder.Services.AddDbContext<NutritionTrackerDbContext>(options =>
