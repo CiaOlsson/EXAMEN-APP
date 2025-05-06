@@ -12,12 +12,13 @@ namespace NutritionTracker.API.Services
 		{
 			List<Claim> claims = new List<Claim>
 			{
+				new Claim(ClaimTypes.NameIdentifier, user.Id),
 				new Claim(ClaimTypes.Name, user.UserName),
 			};
 
 			string key = configuration["JWT_key"];
 
-			var secretKey = new SymmetricSecurityKey(Convert.FromBase64String(key));
+			var secretKey = new SymmetricSecurityKey(Convert.FromBase64String(key!));
 
 			var signInCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
 
