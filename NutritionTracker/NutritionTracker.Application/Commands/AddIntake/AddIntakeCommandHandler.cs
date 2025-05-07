@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace NutritionTracker.Application.Commands.AddIntake
 {
-	public class AddIntakeCommandHandler : IRequestHandler<AddIntakeCommand, IntakeAddedDTO>
+	public class AddIntakeCommandHandler : IRequestHandler<AddIntakeCommand, IntakeAddedDTO?>
 	{
 		private readonly IEventStore _eventStore;
 		private readonly IFoodRepository _foodRepo;
@@ -23,9 +23,12 @@ namespace NutritionTracker.Application.Commands.AddIntake
 			_foodRepo = foodRepo;
 		}
 
-		public async ValueTask<IntakeAddedDTO> Handle(AddIntakeCommand command, CancellationToken cancellationToken)
+		public async ValueTask<IntakeAddedDTO?> Handle(AddIntakeCommand command, CancellationToken cancellationToken)
 		{
 			var food = await _foodRepo.GetFoodById(command.FoodId);
+
+			if (food == null)
+				return null;
 
 			var intakeAddedEvent = new IntakeAddedEvent
 			{

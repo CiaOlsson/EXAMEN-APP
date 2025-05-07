@@ -10,9 +10,15 @@ using System.Threading.Tasks;
 
 namespace NutritionTracker.Application.Queries.GetIntakeForToday
 {
-	public class GetIntakeForTodayQueryHandler(IEventStore eventStore) : IRequestHandler<GetIntakeForTodayQuery, List<GetIntakeForTodayDTO>>
+	public class GetIntakeForTodayQueryHandler : IRequestHandler<GetIntakeForTodayQuery, List<GetIntakeForTodayDTO>>
 	{
 		private readonly IEventStore _eventStore;
+
+		public GetIntakeForTodayQueryHandler(IEventStore eventStore)
+		{
+			_eventStore = eventStore;
+		}
+
 		public async ValueTask<List<GetIntakeForTodayDTO>> Handle(GetIntakeForTodayQuery query, CancellationToken cancellationToken)
 		{
 			var userEvents = await _eventStore.GetEventsAsync(query.UserId);

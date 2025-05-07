@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionTracker.Infrastruc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionTracker.Application", "NutritionTracker.Application\NutritionTracker.Application.csproj", "{180BC065-F819-4F77-B979-873F7EDC5C69}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionTracker.Application.Tests", "NutritionTracker.Application.Tests\NutritionTracker.Application.Tests.csproj", "{C765E0EB-C81C-4BDF-94CB-00F0F1E1C091}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NutritionTracker.API.Tests", "NutritionTracker.API.Tests\NutritionTracker.API.Tests.csproj", "{96E316A3-AD67-4D0D-BD39-A6570CCABEDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{180BC065-F819-4F77-B979-873F7EDC5C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{180BC065-F819-4F77-B979-873F7EDC5C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{180BC065-F819-4F77-B979-873F7EDC5C69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C765E0EB-C81C-4BDF-94CB-00F0F1E1C091}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C765E0EB-C81C-4BDF-94CB-00F0F1E1C091}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C765E0EB-C81C-4BDF-94CB-00F0F1E1C091}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C765E0EB-C81C-4BDF-94CB-00F0F1E1C091}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96E316A3-AD67-4D0D-BD39-A6570CCABEDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96E316A3-AD67-4D0D-BD39-A6570CCABEDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96E316A3-AD67-4D0D-BD39-A6570CCABEDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96E316A3-AD67-4D0D-BD39-A6570CCABEDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

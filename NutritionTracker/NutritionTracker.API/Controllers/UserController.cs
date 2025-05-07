@@ -28,9 +28,6 @@ namespace NutritionTracker.API.Controllers
 		{
 			try
 			{
-				if (!ModelState.IsValid)
-					return BadRequest(ModelState);
-
 				var identityUser = new IdentityUser
 				{
 					UserName = user.UserName,
@@ -70,9 +67,6 @@ namespace NutritionTracker.API.Controllers
 		{
 			try
 			{
-				if (!ModelState.IsValid)
-					return BadRequest(ModelState);
-
 				var user = await _userManager.FindByEmailAsync(loginUser.UserEmail);
 				if (user == null)
 					return Unauthorized("Invalid credentials");

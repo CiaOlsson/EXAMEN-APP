@@ -1,7 +1,5 @@
 ﻿using Mediator;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NutritionTracker.API.Models;
 using NutritionTracker.Application.Commands.AddIntake;
@@ -22,9 +20,6 @@ namespace NutritionTracker.API.Controllers
 		{
 			try
 			{
-				if (!ModelState.IsValid)
-					return BadRequest(ModelState);
-
 				var userId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
 
 				var command = new AddIntakeCommand
@@ -34,7 +29,7 @@ namespace NutritionTracker.API.Controllers
 					FoodAmount = intake.FoodAmount
 				};
 
-				var result = await _mediator.Send(command);
+				var result = await _mediator.Send(command); 
 
 				return Ok(result); 
 			}

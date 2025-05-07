@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace NutritionTracker.Infrastructure.Repositories
 {
@@ -16,7 +17,7 @@ namespace NutritionTracker.Infrastructure.Repositories
 
 		public async Task<FoodEntity> GetFoodById(int foodId)
 		{
-			var foodItem = _context.Foods.SingleOrDefault(food => food.FoodId == foodId);
+			var foodItem = await _context.Foods.SingleOrDefaultAsync(food => food.FoodId == foodId);
 
 			return foodItem;
 		}
