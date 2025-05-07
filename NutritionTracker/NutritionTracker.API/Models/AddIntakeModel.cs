@@ -1,8 +1,12 @@
-﻿namespace NutritionTracker.API.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace NutritionTracker.API.Models
 {
 	public class AddIntakeModel
 	{
+		[Range(1, int.MaxValue, ErrorMessage = "FoodId must be greater than 0")]
 		public int FoodId { get; set; }
+		[Range(0.01, float.MaxValue, ErrorMessage = "FoodAmount must be greater than 0")]
 		public float FoodAmount { get; set; } // kcal är per 100g som vanligt så det är så det måste skrivas in eller omvandlas någon stans på vägen..
 											   								 
 		// eventuellt 									  
