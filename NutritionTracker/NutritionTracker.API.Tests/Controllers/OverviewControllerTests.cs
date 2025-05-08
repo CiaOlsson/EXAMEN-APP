@@ -6,13 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using NutritionTracker.API.Controllers;
 using NutritionTracker.API.Models;
 using NutritionTracker.Application.Commands.AddIntake;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.Marshalling;
+using NutritionTracker.Application.Queries.GetIntakesForDate;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NutritionTracker.API.Tests.Controllers
 {
@@ -90,5 +85,50 @@ namespace NutritionTracker.API.Tests.Controllers
 				i.FoodId.Should().Be(21);
 			});
 		}
+
+		[Test]
+		public async Task GetIntakesForDate_ShouldReturnListOfIntakes_WhenUserHasAddedIntakes() 
+		{
+			//Arrange
+			var query = new GetIntakesForDateQuery
+			{
+				DateOfIntake = DateOfIntake,
+				UserId = UserId,
+			};
+
+			var listOfIntakes = new List<IntakeDTO>
+			{
+				new()
+				{
+					FoodId = 21,
+					Name = "Ananas"
+				},
+				new()
+				{
+					FoodId = 431,
+					Name = "Äpple"
+				}
+			};
+
+			A.CallTo(() => _mediator.Send(A<GetIntakesForDateQuery>.That.Matches(query => 
+			query.UserId == UserId && 
+			query.DateOfIntake == DateOfIntake), A<CancellationToken>._))
+				.Returns(listOfIntakes);
+
+			//Act
+			var result = await _sut.GetIntakesForDate(DateOfIntake);
+
+			//Assert
+			result.Should().BeOfType<OkObjectResult>();
+			var value = (result as OkObjectResult)!.Value;
+
+			value.Should().Satisfy<List<IntakeDTO>>(list =>
+			{
+				list.Count.Should().Be(2);
+				list.First().Name.Should().Be("Ananas");
+				list.First().FoodId.Should().Be(21);
+			});
+		}
+
 	}
 }
