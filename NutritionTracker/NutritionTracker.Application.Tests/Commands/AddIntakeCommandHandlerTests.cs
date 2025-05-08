@@ -33,19 +33,31 @@ namespace NutritionTracker.Application.Tests.Commands
 			{
 				UserId = UserId,
 				FoodId = 21,
-				FoodAmount = 1
+				FoodAmount = 200
 			};
 
 			var food = new FoodEntity
 			{
 				Name = "Apple",
 				Energy_kcal = 95,
-				Protein_g = 0.5,
-				FatTotal_g = 0.3,
-				Carbohydrates_g = 25
+				Protein_g = 1,
+				FatTotal_g = 1,
+				Carbohydrates_g = 1
 			};
 
 			A.CallTo(() => _foodRepo.GetFoodById(command.FoodId)).Returns(food);
+
+			var factor = command.FoodAmount / 100.0;
+
+			var expectedEvent = new IntakeAddedEvent
+			{
+				FoodId = command.FoodId,
+				Name = food.Name,
+				Energy_kcal = food.Energy_kcal * factor,
+				Protein = food.Protein_g * factor,
+				Fat = food.FatTotal_g * factor,
+				Carbohydrates = food.Carbohydrates_g * factor
+			};
 
 			//Act
 			var result = await Sut.Handle(command, CancellationToken.None);
@@ -53,12 +65,12 @@ namespace NutritionTracker.Application.Tests.Commands
 			//Assert
 			A.CallTo(() => _eventStore.SaveEventAsync(A<IntakeAddedEvent>.That
 				.Matches(e =>
-				e.FoodId == command.FoodId &&
-				e.Name == food.Name &&
-				e.Calories == food.Energy_kcal &&
-				e.Protein == food.Protein_g &&
-				e.Fat == food.FatTotal_g &&
-				e.Carbohydrates == food.Carbohydrates_g
+				e.FoodId == expectedEvent.FoodId &&
+				e.Name == expectedEvent.Name &&
+				e.Energy_kcal == expectedEvent.Energy_kcal &&
+				e.Protein == expectedEvent.Protein &&
+				e.Fat == expectedEvent.Fat &&
+				e.Carbohydrates == expectedEvent.Carbohydrates
 				), command.UserId))
 				.MustHaveHappenedOnceExactly();
 
@@ -66,11 +78,11 @@ namespace NutritionTracker.Application.Tests.Commands
 			result.Should().BeOfType<IntakeAddedDTO>();
 			result.UserId.Should().Be(command.UserId);
 			result.FoodId.Should().Be(command.FoodId);
-			result.Name.Should().Be(food.Name);
-			result.Calories.Should().Be(food.Energy_kcal);
-			result.Protein.Should().Be(food.Protein_g);
-			result.Fat.Should().Be(food.FatTotal_g);
-			result.Carbohydrates.Should().Be(food.Carbohydrates_g);
+			result.Name.Should().Be("Apple");
+			result.Energy_kcal.Should().Be(190);
+			result.Protein.Should().Be(2);
+			result.Fat.Should().Be(2);
+			result.Carbohydrates.Should().Be(2);
 		}
 
 		[Test]

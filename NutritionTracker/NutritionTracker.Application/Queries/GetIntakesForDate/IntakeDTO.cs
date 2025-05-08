@@ -10,7 +10,7 @@ namespace NutritionTracker.Application.Queries.GetIntakesForDate
 	{
 		public int FoodId { get; set; }
 		public string Name { get; set; }
-		public int? Calories { get; set; }
+		public double? Energy_kcal { get; set; }
 		public double? Protein { get; set; }
 		public double? Fat { get; set; }
 		public double? Carbohydrates {  get; set; }

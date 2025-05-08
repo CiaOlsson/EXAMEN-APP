@@ -12,7 +12,7 @@ namespace NutritionTracker.Application.Commands.AddIntake
 		public Guid UserId { get; set; }
 		public int FoodId { get; set; }
 		public string Name { get; set; }
-		public double? Calories { get; set; }
+		public double? Energy_kcal { get; set; }
 		public double? Protein { get; set; }
 		public double? Fat { get; set; }
 		public double? Carbohydrates { get; set; }

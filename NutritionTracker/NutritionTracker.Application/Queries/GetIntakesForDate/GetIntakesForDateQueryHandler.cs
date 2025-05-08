@@ -42,7 +42,7 @@ namespace NutritionTracker.Application.Queries.GetIntakesForDate
 					{
 						FoodId = intakeData.FoodId,
 						Name = intakeData.Name,
-						Calories = intakeData.Calories,
+						Energy_kcal = intakeData.Energy_kcal,
 						Protein = intakeData.Protein,
 						Fat = intakeData.Fat,
 						Carbohydrates = intakeData.Carbohydrates
