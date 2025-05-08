@@ -1,5 +1,6 @@
 ﻿using Mediator;
 using NutritionTracker.Application.Interfaces;
+using NutritionTracker.Domain.DomainEntities;
 using NutritionTracker.Domain.Events;
 
 namespace NutritionTracker.Application.Commands.AddIntake
@@ -27,25 +28,33 @@ namespace NutritionTracker.Application.Commands.AddIntake
 				DateOfIntake = command.DateOfIntake,
 				FoodId = command.FoodId,
 				Name = food.Name,
-				Calories = food.Energy_kcal,
-				Protein = food.Protein_g,
-				Fat = food.FatTotal_g,
-				Carbohydrates = food.Carbohydrates_g
 			};
+
+			CalculateNutrition(intakeAddedEvent, food, command.FoodAmount);
 
 			await _eventStore.SaveEventAsync(intakeAddedEvent, command.UserId);
 
 			return new IntakeAddedDTO 
 			{
-				DateOfIntake = command.DateOfIntake,
 				UserId = command.UserId,
-				FoodId = command.FoodId,
-				Name = food.Name,
-				Calories = food.Energy_kcal,
-				Protein = food.Protein_g,
-				Fat = food.FatTotal_g,
-				Carbohydrates = food.Carbohydrates_g
+				DateOfIntake = intakeAddedEvent.DateOfIntake,
+				FoodId = intakeAddedEvent.FoodId,
+				Name = intakeAddedEvent.Name,
+				Energy_kcal = intakeAddedEvent.Energy_kcal,
+				Protein = intakeAddedEvent.Protein,
+				Fat = intakeAddedEvent.Fat,
+				Carbohydrates = intakeAddedEvent.Carbohydrates
 			};
+		}
+
+		private void CalculateNutrition(IntakeAddedEvent intake, FoodEntity food, double amount)
+		{
+			var factor = amount / 100;
+
+			intake.Energy_kcal = food.Energy_kcal * factor;
+			intake.Protein = food.Protein_g * factor;
+			intake.Fat = food.FatTotal_g * factor;
+			intake.Carbohydrates = food.Carbohydrates_g * factor;
 		}
 	}
 }
