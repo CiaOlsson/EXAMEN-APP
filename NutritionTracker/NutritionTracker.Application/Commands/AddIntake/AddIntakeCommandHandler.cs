@@ -1,14 +1,6 @@
 ﻿using Mediator;
 using NutritionTracker.Application.Interfaces;
-using NutritionTracker.Application.Queries.GetIntakeForToday;
-using NutritionTracker.Application.Services;
-using NutritionTracker.Domain.DomainEntities;
 using NutritionTracker.Domain.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NutritionTracker.Application.Commands.AddIntake
 {
@@ -32,6 +24,7 @@ namespace NutritionTracker.Application.Commands.AddIntake
 
 			var intakeAddedEvent = new IntakeAddedEvent
 			{
+				DateOfIntake = command.DateOfIntake,
 				FoodId = command.FoodId,
 				Name = food.Name,
 				Calories = food.Energy_kcal,
@@ -44,6 +37,7 @@ namespace NutritionTracker.Application.Commands.AddIntake
 
 			return new IntakeAddedDTO 
 			{
+				DateOfIntake = command.DateOfIntake,
 				UserId = command.UserId,
 				FoodId = command.FoodId,
 				Name = food.Name,
