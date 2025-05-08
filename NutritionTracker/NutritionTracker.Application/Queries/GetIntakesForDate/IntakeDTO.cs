@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NutritionTracker.Application.Queries.GetIntakeForToday
+namespace NutritionTracker.Application.Queries.GetIntakesForDate
 {
-	public class GetIntakeForTodayDTO
+	public class IntakeDTO
 	{
 		public int FoodId { get; set; }
 		public string Name { get; set; }

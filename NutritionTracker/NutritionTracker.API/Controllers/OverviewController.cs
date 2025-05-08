@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NutritionTracker.API.Models;
 using NutritionTracker.Application.Commands.AddIntake;
-using NutritionTracker.Application.Queries.GetIntakeForToday;
+using NutritionTracker.Application.Queries.GetIntakesForDate;
 using System.Security.Claims;
 
 namespace NutritionTracker.API.Controllers
@@ -42,14 +42,15 @@ namespace NutritionTracker.API.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> GetAllIntakeForToday()
+		public async Task<IActionResult> GetIntakesForDate([FromBody] DateOnly dateOfIntakes)
 		{
 			try
 			{
 				var userId = Guid.Parse(User.FindFirst(ClaimTypes.NameIdentifier)!.Value);
 				
-				var query = new GetIntakeForTodayQuery
+				var query = new GetIntakesForDateQuery
 				{
+					DateOfIntake = dateOfIntakes,
 					UserId = userId
 				};
 
