@@ -17,7 +17,7 @@ namespace NutritionTracker.Infrastructure.Repositories
 		{
 			var result = await _context.Events
 			.Where(e => e.UserId == userId)
-			.OrderBy(e=> e.Timestamp)// då får man alla event för användaren sedan någon annan stans ska man kolla vilka typer av event man vill sortera ut osv. detta ska nog typ hanteras av projektionen??
+			.OrderBy(e=> e.Timestamp)
 			.ToListAsync();
 
 			return result;

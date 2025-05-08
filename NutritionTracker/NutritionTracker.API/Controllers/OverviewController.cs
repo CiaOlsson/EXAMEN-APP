@@ -24,6 +24,7 @@ namespace NutritionTracker.API.Controllers
 
 				var command = new AddIntakeCommand
 				{
+					DateOfIntake = intake.DateOfIntake,
 					UserId = userId,
 					FoodId = intake.FoodId,
 					FoodAmount = intake.FoodAmount

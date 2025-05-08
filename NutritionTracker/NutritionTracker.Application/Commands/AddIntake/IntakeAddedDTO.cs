@@ -8,6 +8,7 @@ namespace NutritionTracker.Application.Commands.AddIntake
 {
 	public class IntakeAddedDTO
 	{
+		public DateOnly DateOfIntake {  get; set; }
 		public Guid UserId { get; set; }
 		public int FoodId { get; set; }
 		public string Name { get; set; }

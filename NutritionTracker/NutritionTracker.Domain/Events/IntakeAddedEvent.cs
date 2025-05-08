@@ -8,6 +8,7 @@ namespace NutritionTracker.Domain.Events
 {
 	public class IntakeAddedEvent
 	{
+		public DateOnly DateOfIntake {  get; set; }
 		public int FoodId { get; set; }
 		public string Name { get; set; }
 		public int? Calories { get; set; }
@@ -16,10 +17,5 @@ namespace NutritionTracker.Domain.Events
 		public double? Carbohydrates { get; set; }
 
 		// de andra jag lägger till får vara nullable.
-
-
-		//public DateTime Timestamp { get; set; } 
-		//kan vara bra om jag senare vill att man ska kunna lägga in mat i efterhand, tex flera dagar senare.
-
 	}
 }

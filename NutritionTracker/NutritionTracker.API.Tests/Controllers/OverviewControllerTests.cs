@@ -23,6 +23,7 @@ namespace NutritionTracker.API.Tests.Controllers
 		private OverviewController _sut;
 
 		private readonly Guid UserId = Guid.NewGuid();
+		private readonly DateOnly DateOfIntake = DateOnly.Parse("2025-02-02");
 
 		[SetUp]
 		public void SetUp()
@@ -55,18 +56,21 @@ namespace NutritionTracker.API.Tests.Controllers
 			//Arrange
 			var addIntake = new AddIntakeModel
 			{
+				DateOfIntake = DateOfIntake,
 				FoodId = 21,
 				FoodAmount = 1
 			};
 
 			var intakeAdded = new IntakeAddedDTO
 			{
+				DateOfIntake = DateOfIntake,
 				UserId = UserId,
 				FoodId = 21,
 				Name = "Ananas",
 			};
 
 			A.CallTo(() => _mediator.Send(A<AddIntakeCommand>.That.Matches(command =>
+			command.DateOfIntake == DateOfIntake &&
 			command.UserId == UserId &&
 			command.FoodId == addIntake.FoodId &&
 			command.FoodAmount == addIntake.FoodAmount), A<CancellationToken>._)).Returns(intakeAdded);
@@ -80,6 +84,7 @@ namespace NutritionTracker.API.Tests.Controllers
 
 			value.Should().Satisfy<IntakeAddedDTO>(i =>
 			{
+				i.DateOfIntake.Should().Be(DateOfIntake);
 				i.Name.Should().Be("Ananas");
 				i.UserId.Should().Be(UserId);
 				i.FoodId.Should().Be(21);
