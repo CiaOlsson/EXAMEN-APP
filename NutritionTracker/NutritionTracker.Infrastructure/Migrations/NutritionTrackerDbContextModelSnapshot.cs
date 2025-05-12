@@ -248,6 +248,203 @@ namespace NutritionTracker.Infrastructure.Migrations
                     b.ToTable("Events");
                 });
 
+            modelBuilder.Entity("NutritionTracker.Domain.DomainEntities.FoodEntity", b =>
+                {
+                    b.Property<int>("FoodId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("FoodId"));
+
+                    b.Property<int?>("AddedSugar_g")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Alcohol_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("ArachidicAcid_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("ArachidonicAcid_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Ash_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("BetaCarotene_ug")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Calcium_mg")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Carbohydrates_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Cholesterol_mg")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("DHA_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("DPA_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Disaccharides_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("EPA_g")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Energy_kcal")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("Energy_kj")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("FatTotal_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("FattyAcids410_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Fiber_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("FolateTotal_ug")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("FreeSugar_g")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Group")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double?>("Iodine_ug")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Iron_mg")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("LauricAcid_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("LinoleicAcid_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("LinolenicAcid_g")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Magnesium_mg")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Monosaccharides_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("MonounsaturatedFattyAcids_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("MyristicAcid_g")
+                        .HasColumnType("float");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<double?>("NiacinEquivalents_mg")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Niacin_mg")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("OleicAcid_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("PalmiticAcid_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("PalmitoleicAcid_g")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Phosphorus_mg")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("PolyunsaturatedFattyAcids_g")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Potassium_mg")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Protein_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Retinol_ug")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Riboflavin_mg")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Salt_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("SaturatedFattyAcids_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Selenium_ug")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("Sodium_mg")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("StearicAcid_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("SugarsTotal_g")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Thiamin_mg")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Vitamin_A_Re_ug")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Vitamin_B12_ug")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Vitamin_B6_mg")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Vitamin_C_mg")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Vitamin_D_ug")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Vitamin_E_mg")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Vitamin_K_ug")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Waste_percent")
+                        .HasColumnType("float");
+
+                    b.Property<double?>("Water_g")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("WholeGrainTotal_g")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("Zinc_mg")
+                        .HasColumnType("float");
+
+                    b.HasKey("FoodId");
+
+                    b.HasIndex("Name");
+
+                    b.ToTable("Foods");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
