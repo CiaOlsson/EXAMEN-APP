@@ -42,7 +42,7 @@ namespace NutritionTracker.API.Controllers
 		}
 
 		[HttpGet]
-		public async Task<IActionResult> GetIntakesForDate([FromBody] DateOnly dateOfIntakes)
+		public async Task<IActionResult> GetIntakesForDate([FromQuery] DateOnly date)
 		{
 			try
 			{
@@ -50,7 +50,7 @@ namespace NutritionTracker.API.Controllers
 				
 				var query = new GetIntakesForDateQuery
 				{
-					DateOfIntake = dateOfIntakes,
+					DateOfIntake = date,
 					UserId = userId
 				};
 

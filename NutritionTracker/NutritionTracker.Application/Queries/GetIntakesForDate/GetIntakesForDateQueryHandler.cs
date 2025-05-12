@@ -45,7 +45,17 @@ namespace NutritionTracker.Application.Queries.GetIntakesForDate
 						Energy_kcal = intakeData.Energy_kcal,
 						Protein = intakeData.Protein,
 						Fat = intakeData.Fat,
-						Carbohydrates = intakeData.Carbohydrates
+						Carbohydrates = intakeData.Carbohydrates,
+						Fiber = intakeData.Fiber,
+						SugarsTotal = intakeData.SugarsTotal,
+						Salt = intakeData.Salt,
+						Vitamin_A = intakeData.Vitamin_A,
+						Vitamin_B6 = intakeData.Vitamin_B6,
+						Vitamin_B12 = intakeData.Vitamin_B12,
+						Vitamin_C = intakeData.Vitamin_C,
+						Vitamin_D = intakeData.Vitamin_D,
+						Vitamin_E = intakeData.Vitamin_E,
+						Vitamin_K = intakeData.Vitamin_K
 					};
 
 					intakesToday.Add(getIntakeForTodayDTO);
