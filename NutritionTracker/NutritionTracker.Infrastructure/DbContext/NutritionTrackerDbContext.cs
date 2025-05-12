@@ -20,5 +20,13 @@ namespace NutritionTracker.Infrastructure.DbContext
 		public DbSet<DomainEvent> Events { get; set; }
 
 		public DbSet<FoodEntity> Foods { get; set; }
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			base.OnModelCreating(modelBuilder);
+
+			modelBuilder.Entity<FoodEntity>()
+				.HasIndex(f => f.Name);
+		}
 	}
 }

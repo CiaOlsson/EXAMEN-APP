@@ -21,5 +21,13 @@ namespace NutritionTracker.Infrastructure.Repositories
 
 			return foodItem;
 		}
+
+		public async Task<List<FoodEntity>> SearchByNameAsync(string query)
+		{
+			return await _context.Foods
+				.Where(f => f.Name.Contains(query))
+				.Take(100)
+				.ToListAsync();
+		}
 	}
 }

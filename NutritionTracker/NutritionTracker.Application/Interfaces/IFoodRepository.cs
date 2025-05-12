@@ -10,5 +10,6 @@ namespace NutritionTracker.Application.Interfaces
 	public interface IFoodRepository
 	{
 		Task<FoodEntity> GetFoodById(int foodId);
+		Task<List<FoodEntity>> SearchByNameAsync(string query);
 	}
 }
