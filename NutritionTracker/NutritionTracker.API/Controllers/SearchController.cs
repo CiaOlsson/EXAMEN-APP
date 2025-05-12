@@ -1,4 +1,5 @@
 ﻿using Mediator;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NutritionTracker.Application.Queries.GetIntakesForDate;
@@ -9,6 +10,7 @@ namespace NutritionTracker.API.Controllers
 {
 	[Route("api/[controller]")]
 	[ApiController]
+	[Authorize]
 	public class SearchController(IMediator mediator) : ControllerBase
 	{
 		private readonly IMediator _mediator = mediator;
