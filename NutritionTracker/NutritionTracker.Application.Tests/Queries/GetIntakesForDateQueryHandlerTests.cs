@@ -66,7 +66,7 @@ namespace NutritionTracker.Application.Tests.Queries
 		}
 
 		[Test]
-		public async Task Handle_ShouldAnEmptyList_WhenNoIntakesWereFound()
+		public async Task Handle_ShouldReturnAnEmptyList_WhenNoIntakesWereFound()
 		{
 			//Arrange
 			var query = new GetIntakesForDateQuery
