@@ -16,16 +16,16 @@ namespace NutritionTracker.API.Controllers
 		private readonly IMediator _mediator = mediator;
 
 		[HttpGet]
-		public async Task<IActionResult> SearchForFood([FromQuery] string searchQuery)
+		public async Task<IActionResult> SearchForFood([FromQuery] string query)
 		{
 			try
 			{
-				var query = new SearchForFoodQuery 
+				var searchQuery = new SearchForFoodQuery
 				{
-					SearchQuery = searchQuery,
+					Query = query
 				};
 
-				var result = await _mediator.Send(query);
+				var result = await _mediator.Send(searchQuery);
 
 				return Ok(result);
 			}

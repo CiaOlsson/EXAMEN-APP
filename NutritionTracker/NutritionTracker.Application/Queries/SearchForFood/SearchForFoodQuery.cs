@@ -10,6 +10,6 @@ namespace NutritionTracker.Application.Queries.SearchForFood
 {
 	public class SearchForFoodQuery: IRequest<List<FoodDTO>>
 	{
-		public string SearchQuery {  get; set; }
+		public string Query {  get; set; }
 	}
 }

@@ -2,7 +2,7 @@
 using NutritionTracker.Domain.DomainEntities;
 using System.Text.Json;
 
-namespace NutritionTracker.Application.Services
+namespace NutritionTracker.Infrastructure.Factory
 {
 	public class DomainEventFactory : IDomainEventFactory
 	{

@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NutritionTracker.Application.Interfaces;
-using NutritionTracker.Application.Services;
+using NutritionTracker.Infrastructure.Factory;
 using NutritionTracker.Domain.DomainEntities;
 using NutritionTracker.Infrastructure.DbContext;
 using System;

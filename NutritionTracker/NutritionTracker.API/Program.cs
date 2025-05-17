@@ -5,8 +5,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NutritionTracker.API.Services;
 using NutritionTracker.Application.Interfaces;
-using NutritionTracker.Application.Services;
 using NutritionTracker.Infrastructure.DbContext;
+using NutritionTracker.Infrastructure.Factory;
 using NutritionTracker.Infrastructure.Repositories;
 using System.Text;
 
