@@ -11,11 +11,11 @@ using System.Security.Claims;
 
 namespace NutritionTracker.API.Tests.Controllers
 {
-	public class OverviewControllerTests
+	public class DashboardControllerTests
 	{
 		private IMediator _mediator;
 		private ClaimsPrincipal _user;
-		private OverviewController _sut;
+		private DashboardController _sut;
 
 		private readonly Guid UserId = Guid.NewGuid();
 		private readonly DateOnly DateOfIntake = DateOnly.Parse("2025-02-02");
@@ -24,7 +24,7 @@ namespace NutritionTracker.API.Tests.Controllers
 		public void SetUp()
 		{
 			_mediator = A.Fake<IMediator>();
-			_sut = new OverviewController(_mediator);
+			_sut = new DashboardController(_mediator);
 
 			var claims = new List<Claim>()
 			{

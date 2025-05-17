@@ -13,7 +13,7 @@ namespace NutritionTracker.Domain.DomainEntities
 		[Key]
 		public int FoodId { get; set; }
 		public string Name { get; set; }
-		public string Group { get; set; }
+		public string? Group { get; set; }
 		public int? Energy_kcal { get; set; }
 		public int? Energy_kj { get; set; }
 		public double? FatTotal_g { get; set; }

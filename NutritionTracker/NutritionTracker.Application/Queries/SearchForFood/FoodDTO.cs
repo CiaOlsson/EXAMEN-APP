@@ -10,6 +10,7 @@ namespace NutritionTracker.Application.Queries.SearchForFood
 	{
 		public int FoodId { get; set; }
 		public string Name { get; set; }
+		public string FoodGroup {  get; set; }
 		public double? Energy_kcal { get; set; }
 	}
 }

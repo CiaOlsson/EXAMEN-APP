@@ -19,7 +19,7 @@ namespace NutritionTracker.Application.Queries.SearchForFood
 		}
 		public async ValueTask<List<FoodDTO>> Handle(SearchForFoodQuery query, CancellationToken cancellationToken)
 		{
-			var searchResult = await _foodRepo.SearchByNameAsync(query.SearchQuery);
+			var searchResult = await _foodRepo.SearchByNameAsync(query.Query);
 
 			var mappedFood = new List<FoodDTO>();
 
@@ -29,6 +29,7 @@ namespace NutritionTracker.Application.Queries.SearchForFood
 				{
 					FoodId = food.FoodId,
 					Name = food.Name,
+					FoodGroup = food.Group,
 					Energy_kcal = food.Energy_kcal,
 				});
 			}

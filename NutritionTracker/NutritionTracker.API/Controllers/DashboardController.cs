@@ -11,7 +11,7 @@ namespace NutritionTracker.API.Controllers
 	[Route("api/[controller]")]
 	[ApiController]
 	[Authorize]
-	public class OverviewController(IMediator mediator) : ControllerBase
+	public class DashboardController(IMediator mediator) : ControllerBase
 	{
 		private readonly IMediator _mediator = mediator;
 
